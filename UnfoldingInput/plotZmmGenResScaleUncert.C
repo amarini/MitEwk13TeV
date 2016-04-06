@@ -279,10 +279,18 @@ void plotZmmGenResScaleUncert(const TString  inputDir,        // input directory
   vector<TH1D> hZPtTruth; create(hZPtTruth,"hZPtTruth",nBinsZPt,ZPtBins,NTOYS);
   vector<TH2D> hZPtMatrix; create(hZPtMatrix,"hZPtMatrix",nBinsZPt,ZPtBins,NTOYS);
 
+  vector<TH1D> hZPtTotReco; create(hZPtTotReco,"hZPtTotReco",nBinsZPt,ZPtBins,NTOYS);
+  vector<TH1D> hZPtTotTruth; create(hZPtTotTruth,"hZPtTotTruth",nBinsZPt,ZPtBins,NTOYS);
+  vector<TH2D> hZPtTotMatrix; create(hZPtTotMatrix,"hZPtTotMatrix",nBinsZPt,ZPtBins,NTOYS);
+
   const int nBinsPhiStar= sizeof(PhiStarBins)/sizeof(double)-1;
   vector<TH1D> hPhiStarReco; create(hPhiStarReco,"hPhiStarReco",nBinsPhiStar,PhiStarBins,NTOYS);
   vector<TH1D> hPhiStarTruth; create(hPhiStarTruth,"hPhiStarTruth",nBinsPhiStar,PhiStarBins,NTOYS);
   vector<TH2D> hPhiStarMatrix; create(hPhiStarMatrix,"hPhiStarMatrix",nBinsPhiStar,PhiStarBins,NTOYS);
+
+  vector<TH1D> hPhiStarTotReco; create(hPhiStarTotReco,"hPhiStarTotReco",nBinsPhiStar,PhiStarBins,NTOYS);
+  vector<TH1D> hPhiStarTotTruth; create(hPhiStarTotTruth,"hPhiStarTotTruth",nBinsPhiStar,PhiStarBins,NTOYS);
+  vector<TH2D> hPhiStarTotMatrix; create(hPhiStarTotMatrix,"hPhiStarTotMatrix",nBinsPhiStar,PhiStarBins,NTOYS);
   
   vector<TH1D> hZRapReco; create(hZRapReco,"hZRapReco",24,0,2.4,NTOYS);
   vector<TH1D> hZRapTruth; create(hZRapTruth,"hZRapTruth",24,0,2.4,NTOYS); 
@@ -464,6 +472,7 @@ void plotZmmGenResScaleUncert(const TString  inputDir,        // input directory
 	
 	bool isReco=false;
 	bool isGen=false;
+	bool isGenTot=false;
 	
 	
 	if(triggerDec&&goodPV&&matchTrigger&&nlep>=2&&q1!=q2&&dilep->M()>MASS_LOW&&dilep->M()<MASS_HIGH&&l1.Pt()>=PT_CUT&&l2.Pt()>=PT_CUT&&fabs(l1.Eta())<=ETA_CUT&&fabs(l2.Eta())<=ETA_CUT)
@@ -474,11 +483,17 @@ void plotZmmGenResScaleUncert(const TString  inputDir,        // input directory
 	  {
 	    isGen=true;
 	  }
+    	if(ngenlep>=2 && genq1!=genq2 && gendilep->M()>50 )
+    	  {
+    	    isGenTot=true;
+    	  }
 	
 	if(isReco)
 	  {
 	    hZPtReco[itoys].Fill(dilep->Pt(),weight*corr);
 	    hPhiStarReco[itoys].Fill(phistar,weight*corr);
+	    hZPtTotReco[itoys].Fill(dilep->Pt(),weight*corr);
+	    hPhiStarTotReco[itoys].Fill(phistar,weight*corr);
 	    hZRapReco[itoys].Fill(fabs(dilep->Rapidity()),weight*corr);
 	    hLep1PtReco[itoys].Fill(l1.Pt(),weight*corr);
 	    hLep2PtReco[itoys].Fill(l2.Pt(),weight*corr);
@@ -515,6 +530,11 @@ void plotZmmGenResScaleUncert(const TString  inputDir,        // input directory
 	    hLep1EtaTruth[itoys].Fill(fabs(genlep1->Eta()),genweight);
 	    hLep2EtaTruth[itoys].Fill(fabs(genlep2->Eta()),genweight);
 	  }
+	if(isGenTot)
+	  {
+	    hZPtTotTruth[itoys].Fill(gendilep->Pt(),genweight);
+	    hPhiStarTotTruth[itoys].Fill(genphistar,genweight);
+	  }
 	if(isReco&&isGen)
 	  {
 	    hZPtMatrix[itoys].Fill(gendilep->Pt(),dilep->Pt(),weight*corr);
@@ -544,6 +564,11 @@ void plotZmmGenResScaleUncert(const TString  inputDir,        // input directory
 	      }
 	    hLep1EtaMatrix[itoys].Fill(fabs(genlep1->Eta()),fabs(l1.Eta()),weight*corr);
 	    hLep2EtaMatrix[itoys].Fill(fabs(genlep2->Eta()),fabs(l2.Eta()),weight*corr);
+	  }
+	if(isReco&&isGen)
+	  {
+	    hZPtTotMatrix[itoys].Fill(gendilep->Pt(),dilep->Pt(),weight*corr);
+	    hPhiStarTotMatrix[itoys].Fill(genphistar,phistar,weight*corr);
 	  }
 	delete gendilep;
 	delete dilep;

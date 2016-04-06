@@ -401,6 +401,20 @@ void plotZmmGen(const TString  conf,            // input file
     TH2D *hZPtMatrix_EffSigShape  = new TH2D("hZPtMatrix_EffSigShape","",nBinsZPt,ZPtBins,nBinsZPt,ZPtBins); hZPtMatrix_EffSigShape->Sumw2();
     TH1D *hZPtReco_EffBkgShape  = new TH1D("hZPtReco_EffBkgShape","",nBinsZPt,ZPtBins); hZPtReco_EffBkgShape->Sumw2();
     TH2D *hZPtMatrix_EffBkgShape  = new TH2D("hZPtMatrix_EffBkgShape","",nBinsZPt,ZPtBins,nBinsZPt,ZPtBins); hZPtMatrix_EffBkgShape->Sumw2();
+
+    TH1D *hZPtTotReco  = new TH1D("hZPtTotReco","",nBinsZPt,ZPtBins); hZPtTotReco->Sumw2();
+    TH1D *hZPtTotTruth  = new TH1D("hZPtTotTruth","",nBinsZPt,ZPtBins); hZPtTotTruth->Sumw2();
+    TH2D *hZPtTotMatrix  = new TH2D("hZPtTotMatrix","",nBinsZPt,ZPtBins,nBinsZPt,ZPtBins); hZPtTotMatrix->Sumw2();
+    TH1D *hZPtTotReco_EffBin  = new TH1D("hZPtTotReco_EffBin","",nBinsZPt,ZPtBins); hZPtTotReco_EffBin->Sumw2();
+    TH2D *hZPtTotMatrix_EffBin  = new TH2D("hZPtTotMatrix_EffBin","",nBinsZPt,ZPtBins,nBinsZPt,ZPtBins); hZPtTotMatrix_EffBin->Sumw2();
+    TH1D *hZPtTotReco_EffStatUp  = new TH1D("hZPtTotReco_EffStatUp","",nBinsZPt,ZPtBins); hZPtTotReco_EffStatUp->Sumw2();
+    TH2D *hZPtTotMatrix_EffStatUp  = new TH2D("hZPtTotMatrix_EffStatUp","",nBinsZPt,ZPtBins,nBinsZPt,ZPtBins); hZPtTotMatrix_EffStatUp->Sumw2();
+    TH1D *hZPtTotReco_EffStatDown  = new TH1D("hZPtTotReco_EffStatDown","",nBinsZPt,ZPtBins); hZPtTotReco_EffStatDown->Sumw2();
+    TH2D *hZPtTotMatrix_EffStatDown  = new TH2D("hZPtTotMatrix_EffStatDown","",nBinsZPt,ZPtBins,nBinsZPt,ZPtBins); hZPtTotMatrix_EffStatDown->Sumw2();
+    TH1D *hZPtTotReco_EffSigShape  = new TH1D("hZPtTotReco_EffSigShape","",nBinsZPt,ZPtBins); hZPtTotReco_EffSigShape->Sumw2();
+    TH2D *hZPtTotMatrix_EffSigShape  = new TH2D("hZPtTotMatrix_EffSigShape","",nBinsZPt,ZPtBins,nBinsZPt,ZPtBins); hZPtTotMatrix_EffSigShape->Sumw2();
+    TH1D *hZPtTotReco_EffBkgShape  = new TH1D("hZPtTotReco_EffBkgShape","",nBinsZPt,ZPtBins); hZPtTotReco_EffBkgShape->Sumw2();
+    TH2D *hZPtTotMatrix_EffBkgShape  = new TH2D("hZPtTotMatrix_EffBkgShape","",nBinsZPt,ZPtBins,nBinsZPt,ZPtBins); hZPtTotMatrix_EffBkgShape->Sumw2();
     
     const int nBinsPhiStar= sizeof(PhiStarBins)/sizeof(double)-1;
     TH1D *hPhiStarReco  = new TH1D("hPhiStarReco","",nBinsPhiStar,PhiStarBins); hPhiStarReco->Sumw2();
@@ -416,6 +430,20 @@ void plotZmmGen(const TString  conf,            // input file
     TH2D *hPhiStarMatrix_EffSigShape  = new TH2D("hPhiStarMatrix_EffSigShape","",nBinsPhiStar,PhiStarBins,nBinsPhiStar,PhiStarBins); hPhiStarMatrix_EffSigShape->Sumw2();
     TH1D *hPhiStarReco_EffBkgShape  = new TH1D("hPhiStarReco_EffBkgShape","",nBinsPhiStar,PhiStarBins); hPhiStarReco_EffBkgShape->Sumw2();
     TH2D *hPhiStarMatrix_EffBkgShape  = new TH2D("hPhiStarMatrix_EffBkgShape","",nBinsPhiStar,PhiStarBins,nBinsPhiStar,PhiStarBins); hPhiStarMatrix_EffBkgShape->Sumw2();
+
+    TH1D *hPhiStarTotReco  = new TH1D("hPhiStarTotReco","",nBinsPhiStar,PhiStarBins); hPhiStarTotReco->Sumw2();
+    TH1D *hPhiStarTotTruth  = new TH1D("hPhiStarTotTruth","",nBinsPhiStar,PhiStarBins); hPhiStarTotTruth->Sumw2();
+    TH2D *hPhiStarTotMatrix  = new TH2D("hPhiStarTotMatrix","",nBinsPhiStar,PhiStarBins,nBinsPhiStar,PhiStarBins); hPhiStarTotMatrix->Sumw2();
+    TH1D *hPhiStarTotReco_EffBin  = new TH1D("hPhiStarTotReco_EffBin","",nBinsPhiStar,PhiStarBins); hPhiStarTotReco_EffBin->Sumw2();
+    TH2D *hPhiStarTotMatrix_EffBin  = new TH2D("hPhiStarTotMatrix_EffBin","",nBinsPhiStar,PhiStarBins,nBinsPhiStar,PhiStarBins); hPhiStarTotMatrix_EffBin->Sumw2();
+    TH1D *hPhiStarTotReco_EffStatUp  = new TH1D("hPhiStarTotReco_EffStatUp","",nBinsPhiStar,PhiStarBins); hPhiStarTotReco_EffStatUp->Sumw2();
+    TH2D *hPhiStarTotMatrix_EffStatUp  = new TH2D("hPhiStarTotMatrix_EffStatUp","",nBinsPhiStar,PhiStarBins,nBinsPhiStar,PhiStarBins); hPhiStarTotMatrix_EffStatUp->Sumw2();
+    TH1D *hPhiStarTotReco_EffStatDown  = new TH1D("hPhiStarTotReco_EffStatDown","",nBinsPhiStar,PhiStarBins); hPhiStarTotReco_EffStatDown->Sumw2();
+    TH2D *hPhiStarTotMatrix_EffStatDown  = new TH2D("hPhiStarTotMatrix_EffStatDown","",nBinsPhiStar,PhiStarBins,nBinsPhiStar,PhiStarBins); hPhiStarTotMatrix_EffStatDown->Sumw2();
+    TH1D *hPhiStarTotReco_EffSigShape  = new TH1D("hPhiStarTotReco_EffSigShape","",nBinsPhiStar,PhiStarBins); hPhiStarTotReco_EffSigShape->Sumw2();
+    TH2D *hPhiStarTotMatrix_EffSigShape  = new TH2D("hPhiStarTotMatrix_EffSigShape","",nBinsPhiStar,PhiStarBins,nBinsPhiStar,PhiStarBins); hPhiStarTotMatrix_EffSigShape->Sumw2();
+    TH1D *hPhiStarTotReco_EffBkgShape  = new TH1D("hPhiStarTotReco_EffBkgShape","",nBinsPhiStar,PhiStarBins); hPhiStarTotReco_EffBkgShape->Sumw2();
+    TH2D *hPhiStarTotMatrix_EffBkgShape  = new TH2D("hPhiStarTotMatrix_EffBkgShape","",nBinsPhiStar,PhiStarBins,nBinsPhiStar,PhiStarBins); hPhiStarTotMatrix_EffBkgShape->Sumw2();
     
     
     TH1D *hZRapReco  = new TH1D("hZRapReco","",24,0,2.4); hZRapReco->Sumw2();
@@ -905,6 +933,7 @@ void plotZmmGen(const TString  conf,            // input file
     
     bool isReco=false;
     bool isGen=false;
+    bool isGenTot=false;
 
     if(triggerDec&&goodPV&&matchTrigger&&nlep>=2&&lq1!=lq2&&dilep->M()>MASS_LOW&&dilep->M()<MASS_HIGH&&l1.Pt()>=PT_CUT&&l2.Pt()>=PT_CUT&&fabs(l1.Eta())<=ETA_CUT&&fabs(l2.Eta())<=ETA_CUT)
       {
@@ -913,6 +942,11 @@ void plotZmmGen(const TString  conf,            // input file
     if(ngenlep>=2&&genq1!=genq2&&gendilep->M()>MASS_LOW&&gendilep->M()<MASS_HIGH&&genlep1->Pt()>=PT_CUT&&genlep2->Pt()>=PT_CUT&&fabs(genlep1->Eta())<=ETA_CUT&&fabs(genlep2->Eta())<=ETA_CUT)
       {
 	isGen=true;
+      }
+
+    if(ngenlep>=2 && genq1!=genq2 && gendilep->M()>50 )
+      {
+	isGenTot=true;
       }
 
     Double_t genweight = 1;
@@ -925,6 +959,8 @@ void plotZmmGen(const TString  conf,            // input file
 	hMassMC ->Fill(dilep->M(),weight*corr);
 	hZPtReco ->Fill(dilep->Pt(),weight*corr);
 	hPhiStarReco ->Fill(phistar,weight*corr);
+	hZPtTotReco ->Fill(dilep->Pt(),weight*corr);
+	hPhiStarTotReco ->Fill(phistar,weight*corr);
 	hZRapReco ->Fill(fabs(dilep->Rapidity()),weight*corr);
 	hLep1PtReco ->Fill(l1.Pt(),weight*corr);
 	hLep2PtReco ->Fill(l2.Pt(),weight*corr);
@@ -932,6 +968,8 @@ void plotZmmGen(const TString  conf,            // input file
 	hLep2EtaReco ->Fill(fabs(l2.Eta()),weight*corr);
 	hZPtReco_EffBin ->Fill(dilep->Pt(),weight*corr2Bin);
 	hPhiStarReco_EffBin ->Fill(phistar,weight*corr2Bin);
+	hZPtTotReco_EffBin ->Fill(dilep->Pt(),weight*corr2Bin);
+	hPhiStarTotReco_EffBin ->Fill(phistar,weight*corr2Bin);
 	hZRapReco_EffBin ->Fill(fabs(dilep->Rapidity()),weight*corr2Bin);
 	hLep1PtReco_EffBin ->Fill(l1.Pt(),weight*corr2Bin);
 	hLep2PtReco_EffBin ->Fill(l2.Pt(),weight*corr2Bin);
@@ -939,6 +977,8 @@ void plotZmmGen(const TString  conf,            // input file
 	hLep2EtaReco_EffBin ->Fill(fabs(l2.Eta()),weight*corr2Bin);
 	hZPtReco_EffStatUp ->Fill(dilep->Pt(),weight*corrUp);
 	hPhiStarReco_EffStatUp ->Fill(phistar,weight*corrUp);
+	hZPtTotReco_EffStatUp ->Fill(dilep->Pt(),weight*corrUp);
+	hPhiStarTotReco_EffStatUp ->Fill(phistar,weight*corrUp);
 	hZRapReco_EffStatUp ->Fill(fabs(dilep->Rapidity()),weight*corrUp);
 	hLep1PtReco_EffStatUp ->Fill(l1.Pt(),weight*corrUp);
 	hLep2PtReco_EffStatUp ->Fill(l2.Pt(),weight*corrUp);
@@ -946,6 +986,8 @@ void plotZmmGen(const TString  conf,            // input file
 	hLep2EtaReco_EffStatUp ->Fill(fabs(l2.Eta()),weight*corrUp);
 	hZPtReco_EffStatDown ->Fill(dilep->Pt(),weight*corrDown);
 	hPhiStarReco_EffStatDown ->Fill(phistar,weight*corrDown);
+	hZPtTotReco_EffStatDown ->Fill(dilep->Pt(),weight*corrDown);
+	hPhiStarTotReco_EffStatDown ->Fill(phistar,weight*corrDown);
 	hZRapReco_EffStatDown ->Fill(fabs(dilep->Rapidity()),weight*corrDown);
 	hLep1PtReco_EffStatDown ->Fill(l1.Pt(),weight*corrDown);
 	hLep2PtReco_EffStatDown ->Fill(l2.Pt(),weight*corrDown);
@@ -953,6 +995,8 @@ void plotZmmGen(const TString  conf,            // input file
 	hLep2EtaReco_EffStatDown ->Fill(fabs(l2.Eta()),weight*corrDown);
 	hZPtReco_EffSigShape ->Fill(dilep->Pt(),weight*corrSigShape);
 	hPhiStarReco_EffSigShape ->Fill(phistar,weight*corrSigShape);
+	hZPtTotReco_EffSigShape ->Fill(dilep->Pt(),weight*corrSigShape);
+	hPhiStarTotReco_EffSigShape ->Fill(phistar,weight*corrSigShape);
 	hZRapReco_EffSigShape ->Fill(fabs(dilep->Rapidity()),weight*corrSigShape);
 	hLep1PtReco_EffSigShape ->Fill(l1.Pt(),weight*corrSigShape);
 	hLep2PtReco_EffSigShape ->Fill(l2.Pt(),weight*corrSigShape);
@@ -960,6 +1004,8 @@ void plotZmmGen(const TString  conf,            // input file
 	hLep2EtaReco_EffSigShape ->Fill(fabs(l2.Eta()),weight*corrSigShape);
 	hZPtReco_EffBkgShape ->Fill(dilep->Pt(),weight*corrBkgShape);
 	hPhiStarReco_EffBkgShape ->Fill(phistar,weight*corrBkgShape);
+	hZPtTotReco_EffBkgShape ->Fill(dilep->Pt(),weight*corrBkgShape);
+	hPhiStarTotReco_EffBkgShape ->Fill(phistar,weight*corrBkgShape);
 	hZRapReco_EffBkgShape ->Fill(fabs(dilep->Rapidity()),weight*corrBkgShape);
 	hLep1PtReco_EffBkgShape ->Fill(l1.Pt(),weight*corrBkgShape);
 	hLep2PtReco_EffBkgShape ->Fill(l2.Pt(),weight*corrBkgShape);
@@ -1018,6 +1064,11 @@ void plotZmmGen(const TString  conf,            // input file
 	    hLepPosPtTruth ->Fill(genlep1->Pt(),genweight);
 	  }
       }
+    if (isGenTot)
+    {
+	hZPtTotTruth ->Fill(gendilep->Pt(),genweight);
+	hPhiStarTotTruth ->Fill(genphistar,genweight);
+    }
     if(isReco&&isGen)
       {
 	hZPtMatrix ->Fill(gendilep->Pt(),dilep->Pt(),weight*corr);
@@ -1125,6 +1176,22 @@ void plotZmmGen(const TString  conf,            // input file
 	    hLepPosPtMatrix_EffBkgShape ->Fill(genlep1->Pt(),l1.Pt(),weight*corrBkgShape);
 	  }
       }
+    if ( isReco and isGenTot )
+    {
+	hZPtTotMatrix ->Fill(gendilep->Pt(),dilep->Pt(),weight*corr);
+	hPhiStarTotMatrix ->Fill(genphistar,phistar,weight*corr);
+	hZPtTotMatrix_EffBin ->Fill(gendilep->Pt(),dilep->Pt(),weight*corr2Bin);
+	hPhiStarTotMatrix_EffBin ->Fill(genphistar,phistar,weight*corr2Bin);
+	hZPtTotMatrix_EffStatUp ->Fill(gendilep->Pt(),dilep->Pt(),weight*corrUp);
+	hPhiStarTotMatrix_EffStatUp ->Fill(genphistar,phistar,weight*corrUp);
+	hZPtTotMatrix_EffStatDown ->Fill(gendilep->Pt(),dilep->Pt(),weight*corrDown);
+	hPhiStarTotMatrix_EffStatDown ->Fill(genphistar,phistar,weight*corrDown);
+	hZPtTotMatrix_EffSigShape ->Fill(gendilep->Pt(),dilep->Pt(),weight*corrSigShape);
+	hPhiStarTotMatrix_EffSigShape ->Fill(genphistar,phistar,weight*corrSigShape);
+	hZPtTotMatrix_EffBkgShape ->Fill(gendilep->Pt(),dilep->Pt(),weight*corrBkgShape);
+	hPhiStarTotMatrix_EffBkgShape ->Fill(genphistar,phistar,weight*corrBkgShape);
+    
+    }
     delete gendilep;
     delete dilep;
   }
